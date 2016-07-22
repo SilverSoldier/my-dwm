@@ -89,8 +89,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = termcmd2 } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = sleepcmd } },
 	//kde specific
-        { MODKEY|ShiftMask,             XK_k,      spawn,          {.v = krcmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = ktermcmd } },
+        //{ MODKEY|ShiftMask,             XK_k,      spawn,          {.v = krcmd } },
+	//{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = ktermcmd } },
 	//xfce4 specific
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = xfcetermcmd } },
 	//others

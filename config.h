@@ -72,16 +72,6 @@ static const char *ktermcmd[]  = { "konsole", NULL };
 // for XFCE4 based items
 static const char *xfcetermcmd[]  = { "xfce4-terminal", NULL };
 
-/* alsa sound */
-static const char channel[]   = "Master";
-
-/* battery */
-static const char batterypath[] = "/sys/class/power_supply/";
-static const char batterynow[]  = "energy_now";
-static const char batteryfull[] = "energy_full_design";
-
-/* bar update interval in seconds (smallest value = 1) */
-static unsigned int update_interval = 1;
 // not working : abandoned for now
 //static const char *nmappletcmd[]  = { "nm-applet", NULL };
 
@@ -154,14 +144,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
-static const struct arg args[] = {
-    /* function     format          argument */
-    { wifi_perc,    "wifi %4s | ",  "wlp3s0" },
-    { battery_perc, "bat %4s | ",   "BAT0" },
-    { cpu_perc,     "cpu %4s ",     NULL },
-    { temp,         "%3s | ",       "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input" },
-    { ram_perc,     "ram %3s | ",   NULL },
-    { vol_perc,     "vol %4s | ",   "default" },
-    { disk_perc,    "ssd %3s | ",   "/" },
-    { datetime,     "%s",           "%y-%m-%d %H:%M:%S" },
-};

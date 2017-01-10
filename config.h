@@ -6,15 +6,16 @@ static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
 static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
+/* static const char selbgcolor[]      = "#005577"; */
+static const char selbgcolor[]      = "#666666";
 static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 2;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "q", "w", "e", "a", "s", "d" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -59,12 +60,6 @@ static const char *utermcmd[]  = { "urxvt", NULL };
 static const char *termcmd[]  = { "gnome-terminal", NULL };
 static const char *gpcmd[]  = { "gnome-panel", NULL };
 
-// dwm specific tools
-//xterm with tabbed (from suckless)
-static const char *termcmd2[]  = { "tabbed", "-c", "xterm", "-into", NULL };
-//custom sleep
-static const char *sleepcmd[]  = { "dwm-sleep.sh", NULL };
-
 // on moving to KDE
 static const char *krcmd[]  = { "konqueror", NULL };
 static const char *ktermcmd[]  = { "konsole", NULL };
@@ -80,25 +75,24 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	//misc
-        { MODKEY|ShiftMask,             XK_f,      spawn,          {.v = ffcmd } },
-        { MODKEY|ShiftMask,             XK_u,      spawn,          {.v = utermcmd } },
+	{ MODKEY|ShiftMask,             XK_i,      spawn,          {.v = ffcmd } },
+	{ MODKEY|ShiftMask,             XK_u,      spawn,          {.v = utermcmd } },
 	//gnome specific
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-        { MODKEY,                       XK_g,      spawn,          {.v = gpcmd } },
-	//dwm specific
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = termcmd2 } },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = sleepcmd } },
+	//{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	//Now opens urxvt
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = utermcmd } },
+	//{ MODKEY,                       XK_g,      spawn,          {.v = gpcmd } },
 	//kde specific
-        //{ MODKEY|ShiftMask,             XK_k,      spawn,          {.v = krcmd } },
+	//{ MODKEY|ShiftMask,             XK_k,      spawn,          {.v = krcmd } },
 	//{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = ktermcmd } },
 	//xfce4 specific
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = xfcetermcmd } },
 	//others
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_Right,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_Left,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_z,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
@@ -118,12 +112,12 @@ static Key keys[] = {
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_q,                      3)
+	TAGKEYS(                        XK_w,                      4)
+	TAGKEYS(                        XK_e,                      5)
+	TAGKEYS(                        XK_a,                      6)
+	TAGKEYS(                        XK_s,                      7)
+	TAGKEYS(                        XK_d,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
